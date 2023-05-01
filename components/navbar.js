@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 
 const Navbar = () => {
     return (
@@ -12,18 +12,26 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home
-                                <span className="sr-only">(current)</span>
-                            </a>
+                            <Link legacyBehavior href="/">
+                                <a className="nav-link" href="#">Home
+                                    <span className="sr-only">(current)</span>
+                                </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About</a>
+                            <Link legacyBehavior href="/about">
+                                <a className="nav-link" href="#">About</a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Services</a>
+                            <Link legacyBehavior href="/services">
+                                <a className="nav-link" href="#">Services</a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contact</a>
+                            <Link legacyBehavior href="/contact">
+                                <a className="nav-link" href="#">Contact</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
