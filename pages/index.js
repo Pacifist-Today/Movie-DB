@@ -40,6 +40,7 @@ const Home = (props) => {
 Home.getInitialProps = async () => {
     const movies = await getMovies()
     const categories = await getCategories()
+    console.log('movies arr', movies)
     const images = movies.map(movie => ({
         id: `image-${movie.id}`,
         url: movie.cover,
