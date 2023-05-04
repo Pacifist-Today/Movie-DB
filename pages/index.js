@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from "react";
 // import Link from "next/link";
-import Head from "next/head";
-import Navbar from "../components/navbar";
 import SideMenu from "../components/sideMenu";
 import Carousel from "../components/carousel";
 import MovieList from "../components/movieList";
-import Footer from "../components/footer";
 import {getCategories, getMovies} from "../actions/index";
 
 const Home = (props) => {
     const { images, categories, movies } = props
+    const [filter, setFilter] = useState('all')
+
+    const changeCategory = (category) => {
+        setFilter(category)
+    }
+
+    const filterMovies = movies => {
+        if (filter === 'all') return movies
+        return movies.filter(movie => movie.genre && movie.genre.includes(filter))
+    }
 
     return (
       <div>
@@ -18,15 +25,19 @@ const Home = (props) => {
               <div className="row">
                 <div className="col-lg-3">
                   <SideMenu
+                      changeCategory={changeCategory}
+                      activeCategory={filter}
                       categories={categories || []}
                       appName={"Movie DB"}
                   />
                 </div>
                 <div className="col-lg-9">
                   <Carousel images={ images }/>
+                    <h1>Displaying {filter} movies</h1>
                   <div className="row">
                     <MovieList
-                        movies={movies || []}
+                        movies={filterMovies(movies) || []}
+
                     />
                   </div>
                 </div>
@@ -40,7 +51,6 @@ const Home = (props) => {
 Home.getInitialProps = async () => {
     const movies = await getMovies()
     const categories = await getCategories()
-    console.log('movies arr', movies)
     const images = movies.map(movie => ({
         id: `image-${movie.id}`,
         url: movie.cover,

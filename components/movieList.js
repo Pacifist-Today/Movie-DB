@@ -23,9 +23,12 @@ class MovieList extends React.Component{
                         <div className="card-body">
                             <h4 className="card-title">
                                 <Link legacyBehavior href={`/movies/${movie.id}`}>
-                                    <a href="#">{movie.name}</a>
+                                    {/*<a href="#">*/}
+                                        {movie.name}
+                                    {/*</a>*/}
                                 </Link>
                             </h4>
+                            <div className="movie-genre">{movie.genre}</div>
                             <p className="card-text">{this.shorten(movie.description, 100)}</p>
                         </div>
                         <div className="card-footer">
