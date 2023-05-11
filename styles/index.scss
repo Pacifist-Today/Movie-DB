@@ -1,14 +1,19 @@
-body {
-  min-height: 100vh;
-  position: relative;
-  margin: 0
+html, body {
+  height: 100%;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin-top:100px;
+body {
+  background-image: url("https://wallpaperset.com/w/full/6/5/2/437956.jpg");
+}
+
+#__next {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.base-page {
+  flex: 1 1 auto;
 }
 
 .home-page{
@@ -31,6 +36,16 @@ footer {
   > li > a {
     font-size: 19px;
   }
+}
+
+.bg-dark {
+  background-color: #000002!important;
+}
+
+.carousel-image {
+  max-height: 350px;
+  max-width: 1000px;
+  width: 1000px;
 }
 
 .navbar-brand {

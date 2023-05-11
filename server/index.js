@@ -40,8 +40,6 @@ app.prepare().then(() => {
             }
             return res.json('Movie has been successfully added!')
         })
-
-        // return res.json({...movie, createdTime: 'today', author: 'Dmitry'})
     })
 
     server.delete('/api/v1/movies/:id', (req, res) => {
@@ -80,23 +78,10 @@ app.prepare().then(() => {
         })
     })
 
-    // server.get('*', (req, res) => {
-    //     return handle(req, res)
-    // })
-    //
-    // server.post('*', (req, res) => {
-    //     return handle(req, res)
-    // })
-
     const PORT = process.env.PORT || 3000;
 
     server.use(handle).listen(PORT, (err) => {
         if (err) throw err
         console.log('> Ready on port ' + PORT)
     })
-
-    // server.listen(PORT, (err) => {
-    //     if (err) throw err
-    //     console.log('> Ready on port ' + PORT)
-    // })
 })
