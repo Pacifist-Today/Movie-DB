@@ -35,6 +35,11 @@ body {
   font-size: 19px;
 }
 
+footer {
+  background-color: black;
+  margin: 0;
+}
+
 .bg-dark {
   background-color: #000002 !important;
 }
