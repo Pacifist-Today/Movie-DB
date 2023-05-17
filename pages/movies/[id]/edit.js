@@ -13,8 +13,8 @@ class EditMovie extends React.Component {
 
     handleUpdateMovie = (movie) => {
         updateMovie(movie).then((updatedMovie) => {
-            console.log('Test id: ', movie.id)
-            console.log('Movie-data: ', movie)
+            // console.log('Test id: ', movie.id)
+            // console.log('Movie-data: ', movie)
             Router.push('/movies/[id]', `/movies/${movie.id}`)
         })
     }

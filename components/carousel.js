@@ -4,7 +4,7 @@ import Image from "next/image";
 const Carousel = (props) => {
 
     const { images } = props
-    console.log(images)
+    // console.log(images)
 
     return (
 

@@ -5,6 +5,7 @@ import React from "react";
 import Footer from "../components/footer";
 
 import '../styles/index.scss'
+import {getMovies} from "../actions";
 
 class MovieApp extends App {
 
@@ -15,6 +16,8 @@ class MovieApp extends App {
 
     render() {
         const { Component, pageProps } = this.props
+        // console.log(this.props.pageProps.movies)
+        const { movies } = pageProps
 
         return (
             <>
@@ -35,7 +38,7 @@ class MovieApp extends App {
                             crossOrigin="anonymous"/>
 
                 </Head>
-                <Navbar />
+                <Navbar movies={movies} />
                 <div className="base-page">
                     <Component {...pageProps} />
                 </div>

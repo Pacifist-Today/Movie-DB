@@ -1,7 +1,25 @@
 import Link from "next/link";
 import {useEffect, useState} from "react";
+import {getCategories, getMovies} from "../actions";
+import React from "react";
+import Home from "../pages";
 
-const Navbar = () => {
+// class Navbar extends React.Component {
+//     static async getInitialProps() {
+//         const movies = await getMovies()
+//         return {movies}
+//     }
+//     render() {
+//         const {movies} = this.props
+//         console.log('movies: ', movies)
+//         return (
+//             <div>{movies}</div>
+//         )
+//     }
+// }
+
+const Navbar = (props) => {
+    const {movies} = props
 
     const [isNavBurgerActive, setNavBurgerState] = useState(false)
     const [isDropDownActive, setDropDownState] = useState(false)
@@ -13,6 +31,19 @@ const Navbar = () => {
     const dropDownHandler = () => {
         setDropDownState(!isDropDownActive)
     }
+
+    const [searchInput, setSearchInput] = useState('')
+
+    // const movies = getMovies().then((movies) => {
+    //     router.push('/')
+    // })
+
+    // Navbar.getServerSideProps = async () => {
+    //     const movies = await getMovies()
+    //     return {movies}
+    // }
+
+    console.log('navbar: ', movies)
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -70,12 +101,15 @@ const Navbar = () => {
                                 <li><a className="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled">Disabled</a>
-                        </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <input
+                            // onClick={}
+                            className="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                        />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

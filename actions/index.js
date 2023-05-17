@@ -1,4 +1,5 @@
 import axios from "axios";
+import {log} from "next/dist/server/typescript/utils";
 
 const BASE_URL = "http://localhost:3000"
 
@@ -16,6 +17,9 @@ export const getMovies = () =>
     axios
         .get(`${BASE_URL}/api/v1/movies`)
         .then((res) => res.data)
+
+
+
 
 export const getCategories = () => {
     return new Promise((resolve, reject) => {

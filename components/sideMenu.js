@@ -9,8 +9,14 @@ const SideMenu = (props) => {
     const router = useRouter()
     let modal = null
 
+    const [show, setShow] = useState(false);
+
+    const handleCloseModal = () => setShow(false);
+    const handleShowModal = () => setShow(true);
+
     const handleCreateMovie = (movie) => {
         createMovie(movie).then((movies) => {
+            handleCloseModal()
             // modal.closeModal()
             router.push('/')
         })
@@ -18,7 +24,14 @@ const SideMenu = (props) => {
 
     return (
         <>
-            <Modal ref={elem => modal = elem} hasSubmit={false}>
+            <Modal
+                ref={elem => modal = elem}
+                hasSubmit={false}
+                show={show}
+                setShow={setShow}
+                handleCloseModal={handleCloseModal}
+                handleShowModal={handleShowModal}
+            >
                 <MovieCreateForm handleFormSubmit={handleCreateMovie} />
             </Modal>
             <h1 className="my-4">{props.appName}</h1>

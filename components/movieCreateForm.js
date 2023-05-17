@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import Button from "react-bootstrap/Button";
 
 const MovieCreateForm = (props) => {
 
@@ -50,7 +51,7 @@ const MovieCreateForm = (props) => {
         props.handleFormSubmit({...form})
     }
 
-    console.log('Form', form)
+    // console.log('Form', form)
     return (
         <form>
             <div className="form-group">

@@ -17,6 +17,7 @@ app.prepare().then(() => {
     server.use(bodyParser.json())
 
     server.get('/api/v1/movies', (req, res) => {
+        // console.log('moviesData: ', moviesData)
         return res.json(moviesData)
     })
 
